@@ -33,4 +33,8 @@ for (i = 0; i < allTimeBlocks.length; i++) {
 
 }
 
-// event.preventDefault();
+// EVENT LISTENERS TO SAVE BUTTON
+
+
+
+// SAVE TO LOCAL STORAGE SO THAT WHEN REFRESHED, DATA STAYS

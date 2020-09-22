@@ -33,8 +33,20 @@ for (i = 0; i < allTimeBlocks.length; i++) {
 
 }
 
+// SAVE TO LOCAL STORAGE SO THAT WHEN REFRESHED, EVENTS STAY
+var savedEvents;
+
+function saveToLocalStorage () {
+    // savedEvents = 
+}
+
+
+
 // EVENT LISTENERS TO SAVE BUTTON
+var saveButton = $(".saveBtn");
+saveButton.on("click", function (event) {
+    event.preventDefault ();
+    localStorage.setItem("savedEvents", JSON.stringify(savedEvents));
+})
 
 
-
-// SAVE TO LOCAL STORAGE SO THAT WHEN REFRESHED, DATA STAYS

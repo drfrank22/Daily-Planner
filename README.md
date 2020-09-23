@@ -1,3 +1,9 @@
 # Daily-Planner
+This application is a daily planner. The object of the planner is to save events on the desired time block into local storage. You can clear events from local storage as well. 
 
-<iframe src="https://drive.google.com/file/d/1zADxjlJpQvkrRtSRLh1ZZfXNX3pQur6O/preview" width="640" height="480"></iframe>
+As the day goes on, the current hour will be in red, past hours will be gray, and future hours will be green. It will also tell you the current date at the top of the page.
+
+
+<img src="./assets/Scheduler.gif">
+
+Deployed Site: https://drfrank22.github.io/Daily-Planner/

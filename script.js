@@ -1,3 +1,5 @@
+$(document).ready(function() {
+
 // DISPLAY CURRENT DATE
 var todaysDate = $("#currentDay");
 todaysDate.text(moment().format("MMMM Do YYYY"));
@@ -30,23 +32,41 @@ for (i = 0; i < allTimeBlocks.length; i++) {
     } else if (moment(timeBlockId, "hA").isAfter()) {
         timeBlockTextarea.addClass("future"); 
     }
+};
 
-}
-
-// SAVE TO LOCAL STORAGE SO THAT WHEN REFRESHED, EVENTS STAY
+// DISPLAY PREVIOUSLY SAVED EVENTS IN CALENDAR
 var savedEvents;
+var eventsArr = [];
 
-function saveToLocalStorage () {
-    // savedEvents = 
-}
+function previouslySavedEvents () {
+    savedEvents = localStorage.getItem("savedEvents");
+    eventsArr=[];
+    if (savedEvents === null || savedEvents === "") {
+        savedEvents = [];
+    } else {
+        savedEvents = JSON.parse(savedEvents);
+        for (i = 0; i , savedEvents.length; i++) {
+        eventsArr.push(savedEvents[i].time)
+        }
+    }
+    for (i = 0; i < eventsArr.length; i++) {
+        var timeBlockElid = "#" + eventsArr[i];
+        var timeBlockEl = $(timeBlockElid).children(".row").children("textarea");
+        $(timeBlockElid).children(".row").children("button").attr("data-event", "yes");
+        timeBlockEl.val(savedEvents[i].event)
+    }
+};
 
+previouslySavedEvents();
 
+// SAVE EVENTS
 
-// EVENT LISTENERS TO SAVE BUTTON
-var saveButton = $(".saveBtn");
-saveButton.on("click", function (event) {
-    event.preventDefault ();
-    localStorage.setItem("savedEvents", JSON.stringify(savedEvents));
+// EVENT LISTENER FOR CLEAR BUTTON
+$("#clearBtn").on("click", function() {
+    localStorage.clear();
+    location.reload();
 })
 
+console.log(localStorage);
 
+});
